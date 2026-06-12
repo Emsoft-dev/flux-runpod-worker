@@ -77,6 +77,15 @@ Optional model override:
 MODEL_ID=black-forest-labs/FLUX.1-schnell
 ```
 
+Optional low VRAM mode for 24GB GPUs:
+
+```text
+LOW_VRAM=1
+```
+
+This enables CPU offload and VAE memory optimizations. It is slower, but can
+help on small MIG slices or 24GB GPUs.
+
 Optional S3/R2 upload:
 
 ```text

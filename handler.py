@@ -27,7 +27,12 @@ def load_pipeline() -> FluxPipeline:
         torch_dtype=torch.bfloat16,
         token=token,
     )
-    pipe.to("cuda")
+    if os.getenv("LOW_VRAM", "0") == "1":
+        pipe.enable_model_cpu_offload()
+        pipe.vae.enable_slicing()
+        pipe.vae.enable_tiling()
+    else:
+        pipe.to("cuda")
     return pipe
 
 
