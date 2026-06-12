@@ -60,6 +60,9 @@ FlashBoot: on
 Network Volume: recommended
 ```
 
+For Blackwell GPUs such as RTX PRO 6000 / RTX 50-series, keep the Dockerfile on
+PyTorch 2.7+ with CUDA 12.8+. Older PyTorch/CUDA images do not support `sm_120`.
+
 ## Environment Variables
 
 Required only if your Hugging Face account needs access to the model:
